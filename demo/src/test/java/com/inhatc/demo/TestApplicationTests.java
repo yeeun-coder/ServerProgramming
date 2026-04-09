@@ -22,33 +22,23 @@ public class TestApplicationTests {
 	
 	@Autowired
 	private QuestionRepository questionRepository;
+	@Autowired
 	private AnswerRepository answerRepository;
 	
 	@Transactional
 	@Test
 	void testJpa() {
-	Optional<Question> oq = this.questionRepository.findById(2);
-	assertTrue(oq.isPresent());
-	Question q = oq.get();
-	List<Answer> answers = q.getAnswers();
-	assertEquals(1, answers.size());
-	assertEquals("있습니다.", answers.get(0).getContent());
+		Optional<Question> oq = this.questionRepository.findById(2);
+		assertTrue(oq.isPresent());
+		Question q = oq.get();
+		List<Answer> answers = q.getAnswers();
+		assertEquals(1, answers.size());
+		assertEquals("있습니다.", answers.get(0).getContent());
 	}
 	
 //	@Test
-//	void testfindBySubjectLike() {
-//		Optional<Answer> oa = this.answerRepository.findById(2);
-//		assertTrue(oa.isPresent());
-//		Answer a = oa.get();
-////		oa.get().getContent();
-//		assertEquals(1, a.getQuestion().getId());
-//		assertEquals(1, this.questionRepository.count());
-//		Optional<Question> oq = this.questionRepository.findById(1); 
-//	}
-	
-//	@Test
 //	void testJPA() {
-//		Optional<Answer> oa = this.answerRepository.findById(1);  // ID 1번 행 가져오기
+//		Optional<Answer> oa = this.answerRepository.findById(2);  // ID 1번 행 가져오기
 //		assertTrue(oa.isPresent());  // assert 행 존재 여부 확인
 //		Answer a = oa.get();  // 바로 사용할 수 있는 인스턴스로 바꾸기
 //		assertEquals(2, a.getQuestion().getId());

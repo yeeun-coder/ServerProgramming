@@ -1,1 +1,18 @@
-<h2>Board Template</h2>
+<!-- <h2>Board Template</h2> -->
+<table>
+	<thead>
+		<tr>
+			<!-- <th>번호</th> -->
+			<th>제목</th>
+			<th>작성일시</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="question: ${questionList}">
+			<!-- <td th:if="${loop.index == 0}" th:text="중요"></td>
+			<td th:unless="${loop.index == 0}" th:text="${loop.count}"></td> -->
+			<td th:text="${question.subject}"></td>
+			<td th:text="${question.createDate}"></td>
+		</tr>
+	</tbody>
+</table>
