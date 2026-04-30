@@ -1,0 +1,29 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content" class="container my-3">
+	<h2 class="border-bottom py-2">질문 등록</h2>
+	<div class="card my-3">
+    	<div class="card-body">
+			<!-- form th:action="@{/question/create}" method="post"> -->
+			<form th:action="${question != null} ? 
+			      @{|/question/modify/${question.id}|} : 
+			      @{/question/create}" method="post">
+			    <div class="mb-3">
+			        <label for="subject" class="form-label">제목</label>
+			        <input type="text" name="subject" 
+				       th:value="${question != null} ? ${question.subject} : ''"
+				       class="form-control" required>
+			    </div>
+			    <div class="mb-3">
+			        <label for="content" class="form-label">내용</label>
+			        <textarea name="content" class="form-control"
+          				th:text="${question != null} ? ${question.content} : ''"></textarea>
+			    </div>
+			    <div class="d-flex">
+				    <button type="submit" class="btn btn-light">저장</button>
+				    <a th:href="@{/question/list}" class="btn btn-secondary">취소</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+</html>
