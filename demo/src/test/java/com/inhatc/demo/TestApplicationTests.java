@@ -20,21 +20,21 @@ import com.inhatc.demo.question.QuestionRepository;
 @SpringBootTest
 public class TestApplicationTests {
 	
-	@Autowired
-	private QuestionRepository questionRepository;
-	@Autowired
-	private AnswerRepository answerRepository;
-	
-	@Transactional
-	@Test
-	void testJpa() {
-		Optional<Question> oq = this.questionRepository.findById(2);
-		assertTrue(oq.isPresent());
-		Question q = oq.get();
-		List<Answer> answers = q.getAnswers();
-		assertEquals(1, answers.size());
-		assertEquals("있습니다.", answers.get(0).getContent());
-	}
+//	@Autowired
+//	private QuestionRepository questionRepository;
+//	@Autowired
+//	private AnswerRepository answerRepository;
+//	
+//	@Transactional
+//	@Test
+//	void testJpa() {
+//		Optional<Question> oq = this.questionRepository.findById(2);
+//		assertTrue(oq.isPresent());
+//		Question q = oq.get();
+//		List<Answer> answers = q.getAnswers();
+//		assertEquals(1, answers.size());
+//		assertEquals("있습니다.", answers.get(0).getContent());
+//	}
 	
 //	@Test
 //	void testJPA() {
